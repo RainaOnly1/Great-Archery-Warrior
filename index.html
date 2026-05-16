@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GARWA — Great Archery Warrior</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="garwa.css" />
+  </head>
+  <body>
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <a href="#home" class="logo">
+          <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+            <line
+              x1="4"
+              y1="20"
+              x2="36"
+              y2="20"
+              stroke="#D4A017"
+              stroke-width="1.5"
+            />
+            <polyline
+              points="28,13 36,20 28,27"
+              fill="none"
+              stroke="#D4A017"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="10"
+              cy="20"
+              r="4"
+              stroke="#8B1A1A"
+              stroke-width="1.5"
+              fill="none"
+            />
+            <circle cx="10" cy="20" r="1.5" fill="#D4A017" />
+          </svg>
+          <div class="logo-img-wrap">
+            <img
+              src="images/garwa.png"
+              alt="Logo GARWA"
+              class="logo-img"
+              id="logoImg"
+              onerror="
+                this.style.display = 'none';
+                document.getElementById('logoPlaceholder').style.display =
+                  'flex';
+              "
+            />
+            <div class="logo-placeholder" id="logoPlaceholder">
+              <span>LOGO</span>
+            </div>
+          </div>
+          GARWA
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" onclick="closeNav()">Beranda</a></li>
+          <li><a href="#about" onclick="closeNav()">Tentang</a></li>
+          <li><a href="#events" onclick="closeNav()">Acara</a></li>
+          <li><a href="#categories" onclick="closeNav()">Kategori</a></li>
+          <li><a href="#contact" onclick="closeNav()">Kontak</a></li>
+          <li><a href="informasi.html">Informasi</a></li>
+          <li><a href="thb.html">THB</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="home" class="hero">
+      <div class="hero-bg"></div>
+
+      <!-- Ember Particles -->
+      <div class="embers" id="embers"></div>
+
+      <!-- Geometric SVG -->
+      <svg
+        class="hero-geo"
+        viewBox="0 0 1200 800"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="0"
+          y1="400"
+          x2="1200"
+          y2="400"
+          stroke="rgba(212,160,23,0.05)"
+          stroke-width="1"
+        />
+        <line
+          x1="600"
+          y1="0"
+          x2="600"
+          y2="800"
+          stroke="rgba(212,160,23,0.05)"
+          stroke-width="1"
+        />
+        <polygon
+          points="600,60 1100,400 600,740 100,400"
+          fill="none"
+          stroke="rgba(212,160,23,0.06)"
+          stroke-width="1"
+        />
+        <polygon
+          points="600,140 1020,400 600,660 180,400"
+          fill="none"
+          stroke="rgba(139,26,26,0.08)"
+          stroke-width="1"
+        />
+        <circle
+          cx="600"
+          cy="400"
+          r="280"
+          fill="none"
+          stroke="rgba(212,160,23,0.04)"
+          stroke-width="1"
+        />
+        <circle
+          cx="600"
+          cy="400"
+          r="200"
+          fill="none"
+          stroke="rgba(212,160,23,0.04)"
+          stroke-width="1"
+        />
+        <!-- Arrow marks at corners -->
+        <g stroke="rgba(212,160,23,0.25)" stroke-width="1" fill="none">
+          <polyline points="30,30 30,60 60,60" />
+          <polyline points="1170,30 1170,60 1140,60" />
+          <polyline points="30,770 30,740 60,740" />
+          <polyline points="1170,770 1170,740 1140,740" />
+        </g>
+      </svg>
+
+      <div class="hero-content">
+        <span class="hero-subtitle-top">Kompetisi Memanah Nasional</span>
+        <h1 class="hero-title">GARWA</h1>
+        <p class="hero-tagline">Great Archery Warrior</p>
+        <div class="hero-divider"></div>
+        <p class="hero-desc">
+          Ajang pembuktian para pemanah handal Indonesia — di sinilah warrior
+          sejati dilahirkan.
+        </p>
+        <div class="hero-cta">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSecEy_BiET0Cg3FkAKRnKkllVSejog3r_5I5sPdXostmJxjfg/viewform" class="btn-primary" target="_blank" rel="noopener noreferrer">DAFTAR SEKARANG</a>
+          <a href="#about" class="btn-secondary">Pelajari Lebih</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Gulir</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="about-section">
+      <div class="section-inner">
+        <span class="section-tag reveal">Mengenal Kami</span>
+        <h2 class="section-title reveal">Tentang GARWA</h2>
+        <div class="title-rule reveal">
+          <span class="rule-ornament">✦</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="about-frame">
+              <div class="about-img-placeholder">
+                <svg viewBox="0 0 80 80" fill="none">
+                  <line
+                    x1="10"
+                    y1="40"
+                    x2="70"
+                    y2="40"
+                    stroke="rgba(212,160,23,0.6)"
+                    stroke-width="2"
+                  />
+                  <polyline
+                    points="58,30 70,40 58,50"
+                    fill="none"
+                    stroke="rgba(212,160,23,0.6)"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="16"
+                    cy="40"
+                    r="8"
+                    stroke="rgba(139,26,26,0.6)"
+                    stroke-width="1.5"
+                    fill="none"
+                  />
+                  <circle cx="16" cy="40" r="3" fill="rgba(212,160,23,0.6)" />
+                  <circle cx="16" cy="40" r="0.5" fill="rgba(212,160,23,1)" />
+                  <line
+                    x1="10"
+                    y1="35"
+                    x2="16"
+                    y2="40"
+                    stroke="rgba(139,26,26,0.4)"
+                    stroke-width="1"
+                  />
+                  <line
+                    x1="10"
+                    y1="45"
+                    x2="16"
+                    y2="40"
+                    stroke="rgba(139,26,26,0.4)"
+                    stroke-width="1"
+                  />
+                </svg>
+                <p>Archer Tournament Photo</p>
+              </div>
+            </div>
+            <div class="stat-bar">
+              <div class="stat-item">
+                <span class="stat-num">500+</span>
+                <span class="stat-label">Peserta</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">12</span>
+                <span class="stat-label">Provinsi</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">3</span>
+                <span class="stat-label">Kategori</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text reveal">
+            <h3>Great Archery Warrior</h3>
+            <p>
+              GARWA adalah kompetisi memanah bergengsi tingkat nasional yang
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EVENTS ── -->
+    <section id="events" class="events-section">
+      <div class="section-inner">
+        <span class="section-tag reveal">Jadwal</span>
+        <h2 class="section-title reveal">Acara 2026</h2>
+        <div class="title-rule reveal">
+          <span class="rule-ornament">✦</span>
+        </div>
+
+        <div class="events-grid">
+          <!-- Card 1 -->
+          <div class="event-card reveal">
+            <div class="event-card-bg"></div>
+            <span class="event-number">01</span>
+            <div class="event-icon"><i class="fas fa-trophy"></i></div>
+            <h3>nama Acara</h3>
+            <div class="event-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>15 – tanggal</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>lokasi</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-users"></i>
+                <span>Peserta, total</span>
+              </div>
+            </div>
+            <div class="event-badge">
+              <span class="badge">divisi</span>
+              <span class="badge">divisi</span>
+              <span class="badge">divisi</span>
+            </div>
+            <a href="#contact" class="event-link">Daftar Sekarang</a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="event-card reveal">
+            <div class="event-card-bg"></div>
+            <span class="event-number">02</span>
+            <div class="event-icon"><i class="fas fa-medal"></i></div>
+            <h3>NAMA acara</h3>
+            <div class="event-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>tanggal</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>lokasi</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-users"></i>
+                <span>peserta, total</span>
+              </div>
+            </div>
+            <div class="event-badge">
+              <span class="badge">kategori</span>
+              <span class="badge">kategori</span>
+              <span class="badge">kategori</span>
+            </div>
+            <a href="#contact" class="event-link">Info Lengkap</a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="event-card reveal">
+            <div class="event-card-bg"></div>
+            <span class="event-number">03</span>
+            <div class="event-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>nama acara</h3>
+            <div class="event-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>tanggal</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>lokasi</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-users"></i>
+                <span>peserta, total</span>
+              </div>
+            </div>
+            <div class="event-badge">
+              <span class="badge">kategori</span>
+              <span class="badge">kategori</span>
+            </div>
+            <a href="#contact" class="event-link">Daftar Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CATEGORIES ── -->
+    <section id="categories" class="categories-section">
+      <div class="section-inner">
+        <span class="section-tag reveal">Disiplin</span>
+        <h2 class="section-title reveal">Kategori Lomba</h2>
+        <div class="title-rule reveal">
+          <span class="rule-ornament">✦</span>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card reveal">
+          <div class="cat-card-bg">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle
+                cx="50"
+                cy="50"
+                r="40"
+                stroke="rgba(212,160,23,0.4)"
+                stroke-width="1"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="25"
+                stroke="rgba(212,160,23,0.4)"
+                stroke-width="1"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="10"
+                stroke="rgba(212,160,23,0.4)"
+                stroke-width="1"
+              />
+              <line
+                x1="0"
+                y1="50"
+                x2="100"
+                y2="50"
+                stroke="rgba(139,26,26,0.5)"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <h3>nama kategori</h3>
+            <p>Deskripsi kategori</p>
+          </div>
+        </div>
+        <div class="cat-card reveal">
+          <div class="cat-card-bg">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle
+                cx="50"
+                cy="50"
+                r="40"
+                stroke="rgba(240,192,64,0.4)"
+                stroke-width="1"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="25"
+                stroke="rgba(240,192,64,0.4)"
+                stroke-width="1"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="10"
+                stroke="rgba(240,192,64,0.4)"
+                stroke-width="1"
+              />
+              <line
+                x1="0"
+                y1="50"
+                x2="100"
+                y2="50"
+                stroke="rgba(240,192,64,0.5)"
+                stroke-width="1"
+              />
+              <circle cx="50" cy="50" r="3" fill="rgba(240,192,64,0.8)" />
+            </svg>
+          </div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <h3>nama kategori</h3>
+            <p>Deskripsi Kategori</p>
+          </div>
+        </div>
+        <div class="cat-card reveal">
+          <div class="cat-card-bg">
+            <svg viewBox="0 0 100 100" fill="none">
+              <path
+                d="M 20 50 Q 50 10 80 50 Q 50 90 20 50 Z"
+                stroke="rgba(168,103,59,0.5)"
+                stroke-width="1"
+                fill="none"
+              />
+              <line
+                x1="20"
+                y1="50"
+                x2="80"
+                y2="50"
+                stroke="rgba(168,103,59,0.5)"
+                stroke-width="1"
+              />
+            </svg>
+          </div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <h3>nama kategori</h3>
+            <p>Deskripsi kategori</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <section id="contact" class="contact-section">
+      <div class="section-inner">
+        <span class="section-tag reveal">Bergabung</span>
+        <h2 class="section-title reveal">Hubungi Kami</h2>
+        <div class="title-rule reveal">
+          <span class="rule-ornament">✦</span>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-lead reveal">
+            <h3>Siap Menjadi Warrior?</h3>
+            <p>
+              Daftarkan dirimu sekarang dan buktikan bahwa kamu layak menjadi
+              pemanah terbaik Indonesia. Kami siap menyambut setiap warrior yang
+              bersungguh-sungguh.
+            </p>
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4>Alamat</h4>
+                  <p>alamat lokasi<br />kota</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <h4>Telepon</h4>
+                  <p>
+                    <a href="tel:+6285779855940">+6285779855940 (Athifah)</a><br />
+                    <a href="tel:+6285150587391">+6285150587391 (Rahma)</a>
+                  </p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <h4>Email</h4>
+                  <p>
+                    <a href="mailto:archeryumpurwokerto@gmail.com">
+                      archeryumpurwokerto@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                  <h4>Jam Operasional</h4>
+                  <p>Senin – minggu: 09.00 – 17.00 WIB</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a
+            href="#home"
+            class="logo"
+            style="margin-bottom: 1rem; display: inline-flex"
+          >
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+              <line
+                x1="4"
+                y1="20"
+                x2="36"
+                y2="20"
+                stroke="#D4A017"
+                stroke-width="1.5"
+              />
+              <polyline
+                points="28,13 36,20 28,27"
+                fill="none"
+                stroke="#D4A017"
+                stroke-width="1.5"
+              />
+              <circle
+                cx="10"
+                cy="20"
+                r="4"
+                stroke="#8B1A1A"
+                stroke-width="1.5"
+                fill="none"
+              />
+              <circle cx="10" cy="20" r="1.5" fill="#D4A017" />
+            </svg>
+            GARWA
+          </a>
+          <p>
+            Great Archery Warrior — Membentuk generasi pemanah tangguh Indonesia
+            yang berdiri di panggung dunia.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://wa.me/+6282211485115"
+              class="social-link"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/ump_archery?igsh=ZWJvbWViNnd1eTlx"
+              class="social-link"
+              target="_blank"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="mailto:archeryumpurwokerto@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@archery.ump?_r=1&_t=ZS-96Oq8tBC5lk"
+              class="social-link"
+              target="_blank"
+            >
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang GARWA</a></li>
+            <li><a href="#events">Acara 2024</a></li>
+            <li><a href="#categories">Kategori</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Acara</h4>
+          <ul>
+            <li><a href="#events">Nama Acara</a></li>
+            <li><a href="#events">Nama Acara</a></li>
+            <li><a href="#events">Nama Acara</a></li>
+            <li><a href="#contact">Nama Acara</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+          <li><a href="tel:+6285779855940">+6285779855940 (Athifah)</a><br />
+              <a href="tel:+6285150587391">+6285150587391 (Rahma)</a>
+            </li>
+            <li><a href="#">archeryumpurwokerto@gmail.com</a></li>
+            <li><a href="#">lokasi </a></li>
+            <li><a href="#">Senin – minggu: 09.00 – 17.00 WIB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 GARWA — Great Archery Warrior. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="garwa.js"></script>
+  </body>
+</html>

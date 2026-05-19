@@ -3,116 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>THB GARWA</title>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="garwa.css" />
   </head>
   <body>
+
+    <!-- ── NAVBAR ── -->
     <nav class="navbar scrolled">
       <div class="nav-inner">
-        <!-- Tombol Kembali -->
-        <a href="index.html" class="nav-back">
+        <a href="index.html" class="nav-back" title="Kembali">
           <i class="fas fa-arrow-left"></i>
         </a>
-
-        <!-- Logo -->
-        <a href="index.html" class="logo"> GARWA </a>
-
-        <!-- Menu -->
+        <a href="index.html" class="logo">
+          GARWA
+        </a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html#home" onclick="closeNav()">Beranda</a></li>
-          <li><a href="index.html#about" onclick="closeNav()">Tentang</a></li>
-          <li><a href="index.html#events" onclick="closeNav()">Acara</a></li>
-          <li>
-            <a href="index.html#categories" onclick="closeNav()">Kategori</a>
-          </li>
-          <li><a href="index.html#contact" onclick="closeNav()">Kontak</a></li>
-          <li><a href="informasi.html">Informasi</a></li>
-          <li><a href="thb.html">THB</a></li>
+          <li><a href="index.html#home"       onclick="closeNav()">Beranda</a></li>
+          <li><a href="index.html#about"      onclick="closeNav()">Tentang</a></li>
+          <li><a href="index.html#categories" onclick="closeNav()">Kategori</a></li>
+          <li><a href="index.html#contact"    onclick="closeNav()">Kontak</a></li>
+          <li><a href="informasi.html"        onclick="closeNav()">Informasi</a></li>
+          <li><a href="thb.html"              onclick="closeNav()">THB</a></li>
         </ul>
+        <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </nav>
 
-    <section class="events-section" style="padding-top: 120px">
-      <div class="section-inner">
-        <span class="section-tag thb-animate"> Training Honor Battle </span>
+    <!-- ── THB PAGE ── -->
+    <main class="thb-page">
 
-        <h2 class="section-title thb-animate">THB GARWA</h2>
-
-        <div class="title-rule thb-animate">
-          <span class="rule-ornament">✦</span>
-        </div>
-
-        <div
-          class="contact-form thb-box"
-          style="max-width: 800px; margin: auto"
-        >
-          <h3
-            style="
-              font-family: &quot;Cinzel Decorative&quot;, serif;
-              color: var(--gold-light);
-              margin-bottom: 1.5rem;
-              text-align: center;
-            "
-          >
-            Technical Hand Book (THB)
-          </h3>
-
-          <p
-            style="
-              color: var(--parchment-dark);
-              text-align: center;
-              line-height: 1.9;
-              margin-bottom: 1.5rem;
-            "
-          >
-            THB (Technical Hand Book) merupakan panduan resmi kegiatan GARWA
-            yang berisi informasi teknis, peraturan, serta ketentuan pelaksanaan
-            program dan perlombaan.
-          </p>
-
-          <p
-            style="
-              color: var(--parchment-dark);
-              text-align: center;
-              line-height: 1.9;
-              margin-bottom: 2rem;
-            "
-          >
-            Peserta dapat mengunduh buku THB untuk mengetahui detail teknis dan
-            informasi kegiatan secara lengkap.
-          </p>
-
-          <div style="text-align: center">
-            <a
-              href="LINK_BUKU_THB.pdf"
-              target="_blank"
-              style="
-                background: var(--gold-light);
-                color: #000;
-                padding: 12px 24px;
-                border-radius: 10px;
-                text-decoration: none;
-                font-weight: bold;
-                display: inline-block;
-              "
-            >
-              Download THB Klik Disini
-            </a>
-          </div>
-        </div>
+      <!-- Background: logo besar transparan -->
+      <div class="thb-bg-logo">
+        <img src="images/garwa.png" alt=""
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <!-- Fallback: bullseye SVG jika gambar tidak ada -->
+        <svg viewBox="0 0 200 200" fill="none" style="display:none">
+          <circle cx="100" cy="100" r="90" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="65" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="40" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="15" fill="rgba(139,26,26,1)"/>
+          <line x1="10" y1="100" x2="190" y2="100" stroke="rgba(212,160,23,0.6)" stroke-width="2"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="rgba(212,160,23,0.6)" stroke-width="2"/>
+        </svg>
       </div>
-    </section>
+
+      <!-- Radial glow -->
+      <div class="thb-bg-glow"></div>
+
+      <div class="thb-inner">
+
+        <!-- Header -->
+        <div class="thb-header">
+          <span class="section-tag">Panduan Resmi</span>
+          <h2 class="section-title">Technical Hand Book</h2>
+          <div class="title-rule"><span class="rule-ornament">✦</span></div>
+        </div>
+
+            <div class="thb-download-wrap">
+              <span class="thb-download-label">Unduh Dokumen Resmi</span>
+              <a href="LINK_BUKU_THB.pdf" target="_blank" rel="noopener noreferrer" class="thb-btn">
+                <i class="fas fa-download"></i>
+                Download THB
+              </a>
+              <p class="thb-note">
+                Jika terdapat pertanyaan mengenai isi THB, silakan hubungi panitia melalui kontak resmi.
+              </p>
+            </div>
+          </div>
+    </main>
+    
+    <script src="garwa.js"></script>
   </body>
 </html>

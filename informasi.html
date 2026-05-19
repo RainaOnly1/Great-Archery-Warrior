@@ -3,80 +3,347 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Informasi GARWA</title>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="garwa.css" />
+
+    <style>
+      /* ── INFORMASI PAGE ── */
+      .info-page {
+        min-height: 100vh;
+        padding-top: 100px;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(180deg, var(--ink) 0%, var(--ink-mid) 50%, var(--crimson-deep) 100%);
+      }
+
+      /* Background logo transparan */
+      .info-bg-logo {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .info-bg-logo img {
+        width: min(75vw, 650px);
+        height: min(75vw, 650px);
+        object-fit: contain;
+        opacity: 0.04;
+        filter: grayscale(100%) brightness(3);
+        user-select: none;
+      }
+      .info-bg-logo svg {
+        width: min(75vw, 650px);
+        height: min(75vw, 650px);
+        opacity: 0.04;
+      }
+      .info-bg-glow {
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 70% 50% at 50% 40%, rgba(139,26,26,0.2) 0%, transparent 70%),
+          radial-gradient(ellipse 40% 30% at 50% 85%, rgba(212,160,23,0.08) 0%, transparent 60%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Inner wrapper */
+      .info-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 5rem 2rem 7rem;
+      }
+
+      /* Header */
+      .info-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .info-header .section-tag {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease 0.1s forwards;
+      }
+      .info-header .section-title {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease 0.25s forwards;
+      }
+      .info-header .title-rule {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease 0.4s forwards;
+        margin-bottom: 0;
+      }
+
+      /* Cards grid */
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5px;
+        border: 1px solid rgba(212,160,23,0.15);
+        margin-bottom: 3rem;
+      }
+
+      .info-card {
+        background: rgba(10,4,4,0.72);
+        padding: 2.5rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: default;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: fadeUp 0.9s ease forwards;
+        backdrop-filter: blur(4px);
+      }
+      .info-card:nth-child(1) { animation-delay: 0.55s; }
+      .info-card:nth-child(2) { animation-delay: 0.7s;  }
+      .info-card:nth-child(3) { animation-delay: 0.85s; }
+      .info-card:nth-child(4) { animation-delay: 1.0s;  }
+      .info-card:nth-child(5) { animation-delay: 1.15s; }
+      .info-card:nth-child(6) { animation-delay: 1.3s;  }
+
+      /* Top accent on hover */
+      .info-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .info-card:hover::before { transform: scaleX(1); }
+      .info-card:hover {
+        background: rgba(20,8,8,0.92);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 40px rgba(212,160,23,0.15);
+      }
+
+      /* Decorative number */
+      .info-card-num {
+        font-family: 'Cinzel Decorative', serif;
+        font-size: 3.5rem;
+        color: rgba(212,160,23,0.06);
+        position: absolute;
+        top: 0.8rem; right: 1.2rem;
+        line-height: 1;
+        transition: color 0.4s;
+        user-select: none;
+      }
+      .info-card:hover .info-card-num { color: rgba(212,160,23,0.12); }
+
+      /* Icon */
+      .info-icon {
+        width: 50px; height: 50px;
+        border: 1px solid rgba(212,160,23,0.3);
+        display: flex; align-items: center; justify-content: center;
+        color: var(--gold);
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        animation: floatIcon 3s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+
+      .info-card h3 {
+        font-family: 'Cinzel', serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--gold-light);
+        margin-bottom: 0.9rem;
+        line-height: 1.3;
+      }
+
+      .info-card p {
+        font-size: 0.95rem;
+        color: var(--parchment-dark);
+        line-height: 1.85;
+      }
+
+      /* Divider line between description and optional badge/link */
+      .info-card-footer {
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
+        border-top: 1px solid rgba(212,160,23,0.1);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .info-badge {
+        font-family: 'Cinzel', serif;
+        font-size: 0.58rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold-pale);
+        background: rgba(212,160,23,0.08);
+        border: 1px solid rgba(212,160,23,0.2);
+        padding: 3px 10px;
+      }
+
+      /* Wide card (spans full row) */
+      .info-card.wide {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 0 1.5rem;
+        align-items: start;
+      }
+      .info-card.wide .info-icon { margin-bottom: 0; }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .info-grid { grid-template-columns: 1fr 1fr; }
+        .info-card.wide { grid-template-columns: 1fr; }
+        .info-card.wide .info-icon { margin-bottom: 1.2rem; }
+      }
+      @media (max-width: 600px) {
+        .info-grid { grid-template-columns: 1fr; }
+        .info-card.wide { grid-column: auto; }
+      }
+    </style>
   </head>
   <body>
+
+    <!-- ── NAVBAR ── -->
     <nav class="navbar scrolled">
       <div class="nav-inner">
-        <!-- Tombol Kembali -->
-        <a href="index.html" class="nav-back">
+        <a href="index.html" class="nav-back" title="Kembali">
           <i class="fas fa-arrow-left"></i>
         </a>
-
-        <!-- Logo -->
-        <a href="index.html" class="logo"> GARWA </a>
-
-        <!-- Menu -->
+        <a href="index.html" class="logo">GARWA</a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html#home" onclick="closeNav()">Beranda</a></li>
-          <li><a href="index.html#about" onclick="closeNav()">Tentang</a></li>
-          <li><a href="index.html#events" onclick="closeNav()">Acara</a></li>
+          <li><a href="index.html#home"       onclick="closeNav()">Beranda</a></li>
+          <li><a href="index.html#about"      onclick="closeNav()">Tentang</a></li>
           <li><a href="index.html#categories" onclick="closeNav()">Kategori</a></li>
-          <li><a href="index.html#contact" onclick="closeNav()">Kontak</a></li>
-          <li><a href="informasi.html">Informasi</a></li>
-          <li><a href="thb.html">THB</a></li>
+          <li><a href="index.html#contact"    onclick="closeNav()">Kontak</a></li>
+          <li><a href="informasi.html"        onclick="closeNav()">Informasi</a></li>
+          <li><a href="thb.html"              onclick="closeNav()">THB</a></li>
         </ul>
+        <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </nav>
 
-    <section class="about-section" style="padding-top: 120px">
-      <div class="section-inner">
-        <span class="section-tag">Pusat Informasi</span>
+    <!-- ── INFORMASI PAGE ── -->
+    <main class="info-page">
 
-        <h2 class="section-title">Informasi GARWA</h2>
-
-        <div class="title-rule">
-          <span class="rule-ornament">✦</span>
-        </div>
-
-        <div class="events-grid">
-          <div class="event-card">
-            <div class="event-icon">📜</div>
-
-            <h3>keterangan</h3>
-
-            <p>Deskripsi</p>
-          </div>
-
-          <div class="event-card">
-            <div class="event-icon">🏹</div>
-
-            <h3>keterangan</h3>
-
-            <p>deskripsi</p>
-          </div>
-
-          <div class="event-card">
-            <div class="event-icon">🏆</div>
-
-            <h3>keterangan</h3>
-            <p>deskripsi</p>
-          </div>
-        </div>
+      <!-- Background logo transparan -->
+      <div class="info-bg-logo">
+        <img src="images/garwa.png" alt=""
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <svg viewBox="0 0 200 200" fill="none" style="display:none">
+          <circle cx="100" cy="100" r="90" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="65" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="40" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="15" fill="rgba(139,26,26,1)"/>
+          <line x1="10" y1="100" x2="190" y2="100" stroke="rgba(212,160,23,0.6)" stroke-width="2"/>
+          <line x1="100" y1="10"  x2="100" y2="190" stroke="rgba(212,160,23,0.6)" stroke-width="2"/>
+        </svg>
       </div>
-    </section>
+      <div class="info-bg-glow"></div>
+
+      <div class="info-inner">
+
+        <!-- Header -->
+        <div class="info-header">
+          <span class="section-tag">Pusat Informasi</span>
+          <h2 class="section-title">Informasi GARWA</h2>
+          <div class="title-rule"><span class="rule-ornament">✦</span></div>
+        </div>
+
+        <!-- Cards -->
+        <div class="info-grid">
+
+          <div class="info-card">
+            <span class="info-card-num">01</span>
+            <div class="info-icon"><i class="fas fa-scroll"></i></div>
+            <h3>keterangan</h3>
+            <p>Deskripsi informasi pertama mengenai kegiatan atau ketentuan GARWA yang perlu diketahui peserta.</p>
+            <div class="info-card-footer">
+              <span class="info-badge">Umum</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="info-card-num">02</span>
+            <div class="info-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>keterangan</h3>
+            <p>Deskripsi informasi kedua mengenai teknis perlombaan atau persyaratan kategori yang berlaku.</p>
+            <div class="info-card-footer">
+              <span class="info-badge">Teknis</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="info-card-num">03</span>
+            <div class="info-icon"><i class="fas fa-trophy"></i></div>
+            <h3>keterangan</h3>
+            <p>Deskripsi informasi ketiga mengenai hadiah, penghargaan, atau ketentuan juara dalam kompetisi.</p>
+            <div class="info-card-footer">
+              <span class="info-badge">Penghargaan</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="info-card-num">04</span>
+            <div class="info-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>keterangan</h3>
+            <p>Deskripsi informasi keempat mengenai jadwal kegiatan, timeline pendaftaran, dan pelaksanaan.</p>
+            <div class="info-card-footer">
+              <span class="info-badge">Jadwal</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="info-card-num">05</span>
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>keterangan</h3>
+            <p>Deskripsi informasi kelima mengenai lokasi pelaksanaan, petunjuk arah, dan fasilitas venue.</p>
+            <div class="info-card-footer">
+              <span class="info-badge">Lokasi</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <span class="info-card-num">06</span>
+            <div class="info-icon"><i class="fas fa-users"></i></div>
+            <h3>keterangan</h3>
+            <p>Deskripsi informasi keenam mengenai ketentuan peserta, kuota, dan persyaratan pendaftaran.</p>
+            <div class="info-card-footer">
+              <span class="info-badge">Peserta</span>
+            </div>
+          </div>
+    </main>
+
+    <script>
+      function toggleNav() {
+        const nav     = document.getElementById('navLinks');
+        const overlay = document.getElementById('navOverlay');
+        if (nav.classList.contains('open')) {
+          closeNav();
+        } else {
+          nav.classList.add('open');
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+      function closeNav() {
+        document.getElementById('navLinks').classList.remove('open');
+        document.getElementById('navOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    </script>
   </body>
 </html>

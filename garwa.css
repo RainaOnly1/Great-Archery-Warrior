@@ -680,13 +680,159 @@ section {
 }
 .footer-col ul li a:hover { color: var(--gold-light); }
 .footer-bottom {
-  border-top: 1px solid rgba(212,160,23,0.1);
+border-top: 1px solid rgba(212,160,23,0.1);
   text-align: center;
-  padding: 1.5rem 2.5rem;
+  padding: 1.5rem 1rem;
+
   font-size: 0.8rem;
   font-family: "Cinzel", serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
+
   color: rgba(168,103,59,0.6);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── SPONSOR SECTION ── */
+
+.sponsor-section{
+  position: relative;
+  padding: 5rem 0;
+  background:
+    linear-gradient(
+      180deg,
+      var(--ink-mid) 0%,
+      var(--ink) 100%
+    );
+  overflow: hidden;
+}
+
+.sponsor-top{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sponsor-marquee{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.sponsor-track{
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation: sponsorScroll 28s linear infinite;
+}
+
+.sponsor-item{
+  width: 180px;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,160,23,0.15);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.sponsor-item:hover{
+  transform: translateY(-6px);
+  border-color: rgba(212,160,23,0.4);
+  background: rgba(212,160,23,0.05);
+}
+
+.sponsor-item img{
+  max-width: 70%;
+  max-height: 60%;
+  object-fit: contain;
+
+  filter:
+    grayscale(100%)
+    brightness(0.9);
+
+  opacity: 0.75;
+
+  transition:
+    filter 0.35s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.sponsor-item:hover img{
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@keyframes sponsorScroll{
+  from{
+    transform: translateX(0);
+  }
+
+  to{
+    transform: translateX(-50%);
+  }
+}
+
+/* fade kiri kanan */
+
+.sponsor-marquee::before,
+.sponsor-marquee::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sponsor-marquee::before{
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    var(--ink) 0%,
+    transparent 100%
+  );
+}
+
+.sponsor-marquee::after{
+  right: 0;
+  background: linear-gradient(
+    270deg,
+    var(--ink) 0%,
+    transparent 100%
+  );
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px){
+
+  .sponsor-track{
+    gap: 2rem;
+    animation-duration: 20s;
+  }
+
+  .sponsor-item{
+    width: 140px;
+    height: 75px;
+  }
+
 }
 
 /* ── THB PAGE ── */
@@ -797,6 +943,17 @@ section {
   color: rgba(168,103,59,0.7);
   text-align: center;
 }
+.thb-note a{
+  color: var(--gold-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.thb-note a:hover{
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(212,160,23,0.4);
+}
 .thb-box {
   opacity: 0;
   transform: scale(0.95) translateY(40px);
@@ -866,4 +1023,16 @@ section {
   .section-inner { padding: 5rem 1.5rem; }
   .footer-main { grid-template-columns: 1fr; }
   .thb-btn { padding: 14px 32px; font-size: 0.75rem; }
+
+    .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom{
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+  }
 }

@@ -502,7 +502,7 @@ section {
 }
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2px;
 }
 .cat-card {
@@ -518,6 +518,7 @@ section {
 .cat-card:nth-child(1) { border-bottom: 2px solid var(--crimson); }
 .cat-card:nth-child(2) { border-bottom: 2px solid var(--gold); }
 .cat-card:nth-child(3) { border-bottom: 2px solid var(--brown-mid); }
+.cat-card:nth-child(4) {border-bottom: 2px solid var(--gold);}
 .cat-card-bg {
   position: absolute;
   inset: 0;

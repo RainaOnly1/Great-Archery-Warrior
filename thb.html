@@ -5,33 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THB GARWA</title>
     <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="garwa.css" />
   </head>
   <body>
+
     <!-- ── NAVBAR ── -->
     <nav class="navbar scrolled">
       <div class="nav-inner">
         <a href="index.html" class="nav-back" title="Kembali">
           <i class="fas fa-arrow-left"></i>
         </a>
-        <a href="index.html" class="logo"> GARWA </a>
+        <a href="index.html" class="logo">
+          GARWA
+        </a>
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html#home" onclick="closeNav()">Beranda</a></li>
-          <li><a href="index.html#about" onclick="closeNav()">Tentang</a></li>
-          <li>
-            <a href="index.html#categories" onclick="closeNav()">Kategori</a>
-          </li>
-          <li><a href="index.html#contact" onclick="closeNav()">Kontak</a></li>
-          <li><a href="informasi.html" onclick="closeNav()">Informasi</a></li>
-          <li><a href="thb.html" onclick="closeNav()">THB</a></li>
+          <li><a href="index.html#home"       onclick="closeNav()">Beranda</a></li>
+          <li><a href="index.html#about"      onclick="closeNav()">Tentang</a></li>
+          <li><a href="index.html#categories" onclick="closeNav()">Kategori</a></li>
+          <li><a href="index.html#contact"    onclick="closeNav()">Kontak</a></li>
+          <li><a href="informasi.html"        onclick="closeNav()">Informasi</a></li>
+          <li><a href="thb.html"              onclick="closeNav()">THB</a></li>
         </ul>
         <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
         <div class="hamburger" id="hamburger" onclick="toggleNav()">
@@ -42,56 +37,19 @@
 
     <!-- ── THB PAGE ── -->
     <main class="thb-page">
+
       <!-- Background: logo besar transparan -->
       <div class="thb-bg-logo">
-        <img
-          src="images/garwa.png"
-          alt=""
-          onerror="
-            this.style.display = 'none';
-            this.nextElementSibling.style.display = 'block';
-          "
-        />
+        <img src="images/garwa.png" alt=""
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
         <!-- Fallback: bullseye SVG jika gambar tidak ada -->
-        <svg viewBox="0 0 200 200" fill="none" style="display: none">
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="rgba(212,160,23,1)"
-            stroke-width="3"
-          />
-          <circle
-            cx="100"
-            cy="100"
-            r="65"
-            stroke="rgba(212,160,23,1)"
-            stroke-width="3"
-          />
-          <circle
-            cx="100"
-            cy="100"
-            r="40"
-            stroke="rgba(212,160,23,1)"
-            stroke-width="3"
-          />
-          <circle cx="100" cy="100" r="15" fill="rgba(139,26,26,1)" />
-          <line
-            x1="10"
-            y1="100"
-            x2="190"
-            y2="100"
-            stroke="rgba(212,160,23,0.6)"
-            stroke-width="2"
-          />
-          <line
-            x1="100"
-            y1="10"
-            x2="100"
-            y2="190"
-            stroke="rgba(212,160,23,0.6)"
-            stroke-width="2"
-          />
+        <svg viewBox="0 0 200 200" fill="none" style="display:none">
+          <circle cx="100" cy="100" r="90" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="65" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="40" stroke="rgba(212,160,23,1)" stroke-width="3"/>
+          <circle cx="100" cy="100" r="15" fill="rgba(139,26,26,1)"/>
+          <line x1="10" y1="100" x2="190" y2="100" stroke="rgba(212,160,23,0.6)" stroke-width="2"/>
+          <line x1="100" y1="10" x2="100" y2="190" stroke="rgba(212,160,23,0.6)" stroke-width="2"/>
         </svg>
       </div>
 
@@ -99,39 +57,32 @@
       <div class="thb-bg-glow"></div>
 
       <div class="thb-inner">
+
         <!-- Header -->
         <div class="thb-header">
           <span class="section-tag">Panduan Resmi</span>
           <h2 class="section-title">Technical Hand Book</h2>
           <div class="title-rule"><span class="rule-ornament">✦</span></div>
         </div>
-
-        <div class="thb-download-wrap">
-    <span class="thb-download-label">Unduh THB</span>
-
-    <a href="https://drive.google.com/uc?export=download&id=1Iem6BBoCMz1Ttduu7KtmEKN-fkiYBDc-" 
-       class="thb-btn"
-       download>
-
-        <i class="fas fa-download"></i>
-        Download THB
-    </a>
-
-    <p class="thb-note">
-        Jika terdapat pertanyaan mengenai isi THB, silakan hubungi panitia melalui kontak resmi.
-        <a href="index.html#contact"> Disini </a>
-    </p>
-</div>
-      </div>
+            <div class="thb-download-wrap">
+              <span class="thb-download-label">Unduh THB</span>
+              <a href="https://drive.google.com/file/d/18iWn5br1xxpNWOg3nhi4Im95U8o_IpXb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="thb-btn">
+                <i class="fas fa-download"></i>
+                Download THB
+              </a>
+              <p class="thb-note">
+                Jika terdapat pertanyaan mengenai isi THB, silakan hubungi panitia melalui kontak resmi.
+                <a href="index.html#contact" target="_blank" rel="noopener noreferrer"> Disini </a>
+              </p>
+            </div>
+          </div>
     </main>
-
+    
     <!-- ── FOOTER ── -->
     <footer class="footer">
-      <div class="footer-bottom">
-        &copy; 2026 GARWA — Great Archery Warrior. All rights reserved.
-      </div>
+      <div class="footer-bottom">&copy; 2026 GARWA — Great Archery Warrior. All rights reserved.</div>
     </footer>
-
+    
     <script src="garwa.js"></script>
   </body>
 </html>

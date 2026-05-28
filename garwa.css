@@ -1036,3 +1036,32 @@ border-top: 1px solid rgba(212,160,23,0.1);
     letter-spacing: 0.03em;
   }
 }
+
+/* ── RESPONSIVE FOOTER ── */
+@media (max-width: 768px){
+
+  .footer-main{
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footer-brand{
+    text-align: center;
+  }
+
+  .social-links{
+    justify-content: center;
+  }
+
+  .footer-col{
+    text-align: center;
+  }
+
+  .footer-bottom{
+    white-space: normal;
+    line-height: 1.6;
+    padding: 1.2rem 1rem;
+  }
+
+}

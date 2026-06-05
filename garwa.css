@@ -397,7 +397,7 @@ section {
 }
 .section-title {
   font-family: "Cinzel Decorative", serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(1.6rem, 4vw, 3rem);
   font-weight: 700;
   text-align: center;
   color: var(--gold-light);
@@ -834,7 +834,6 @@ border-top: 1px solid rgba(212,160,23,0.1);
   }
 
 }
-
 /* ── THB PAGE ── */
 .thb-page {
   min-height: 100vh;
